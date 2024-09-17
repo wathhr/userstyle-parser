@@ -1,4 +1,4 @@
-import { assertEquals, assertThrows } from '@std/assert/mod.ts';
+import { assertEquals, assertThrows } from '@std/assert';
 import { Range } from './range.ts';
 
 Deno.test('parses range variables', () => {

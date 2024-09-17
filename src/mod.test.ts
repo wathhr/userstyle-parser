@@ -1,4 +1,4 @@
-import { assertThrows, assert, assertEquals } from '@std/assert/mod.ts';
+import { assertThrows, assert, assertEquals } from '@std/assert';
 import { parse as defaultParse } from './mod.ts';
 
 Deno.test('valid userstyle', () => {

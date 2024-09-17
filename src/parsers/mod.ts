@@ -1,4 +1,4 @@
-import { parse as semverParse } from '@std/semver/mod.ts';
+import { parse as semverParse } from '@std/semver';
 import type { CustomParserArgs, UserStyleMeta } from '../types.ts';
 import { urlValidator } from './validators.ts';
 import { author } from './author.ts';

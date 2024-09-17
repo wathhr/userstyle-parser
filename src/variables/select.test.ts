@@ -1,4 +1,4 @@
-import { assertEquals, assertThrows } from '@std/assert/mod.ts';
+import { assertEquals, assertThrows } from '@std/assert';
 import { Select } from './select.ts';
 
 Deno.test('parses select variables', () => {

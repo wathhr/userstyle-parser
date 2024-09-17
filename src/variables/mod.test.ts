@@ -1,4 +1,4 @@
-import { assertEquals } from '@std/assert/mod.ts';
+import { assertEquals } from '@std/assert';
 import { Text, Color, Checkbox } from './mod.ts';
 
 Deno.test('parses text variables', () => {

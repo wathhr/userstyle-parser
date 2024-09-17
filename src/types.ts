@@ -1,4 +1,4 @@
-import type { SemVer } from '@std/semver/types.ts';
+import type { SemVer } from '@std/semver/types';
 import type { license } from './parsers/license.ts';
 import type { preprocessor } from './parsers/preprocessor.ts';
 import type { Variable } from './variables/mod.ts';
