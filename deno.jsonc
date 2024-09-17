@@ -1,0 +1,29 @@
+{
+  "name": "@wathhr/userstyle-parser",
+  "version": "0.1.0",
+  "exports": "./src/mod.ts",
+  "tasks": {
+    "dev": "deno test --watch ./src/mod.ts"
+  },
+  "license": "GPL-3.0-or-later",
+  "imports": {
+    "@std/": "https://deno.land/std@0.224.0/",
+    "color-parse": "npm:color-parse@2.0.2",
+    "spdx-correct": "npm:spdx-correct@3.2.0"
+  },
+  "lint": {
+    "include": [
+      "./src"
+    ]
+  },
+  "compilerOptions": {
+    "strict": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    // "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true
+  }
+}
