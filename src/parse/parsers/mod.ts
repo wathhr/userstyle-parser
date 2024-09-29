@@ -1,5 +1,5 @@
 import { parse as semverParse } from '@std/semver';
-import type { CustomParserArgs, UserStyleMeta } from '#types';
+import type { CustomParser, CustomParserArgs, UserStyleMeta } from '#types';
 import { ParseError } from '../mod.ts';
 import { createCustomParser } from './custom.ts';
 import { urlValidator } from './validators.ts';
@@ -8,7 +8,7 @@ import { license } from './license.ts';
 import { preprocessor } from './preprocessor.ts';
 import { variable } from './var.ts';
 
-export const genericParser = createCustomParser<string>((_, { nextPart, position }) => {
+export const genericParser: CustomParser<string> = createCustomParser<string>((_, { nextPart, position }) => {
   const part = nextPart();
   if (part.done) throw new ParseError({ message: 'No value provided', position });
   return part.value;

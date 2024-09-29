@@ -10,7 +10,7 @@ export class Text extends VariableBase<string> {
 
 export class Color extends VariableBase {
   type = 'color' as const;
-  defaultValue = parseColor(this.raw);
+  defaultValue: ReturnType<typeof parseColor> = parseColor(this.raw);
 }
 
 export class Checkbox extends VariableBase<boolean> {
