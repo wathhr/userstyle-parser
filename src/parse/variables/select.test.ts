@@ -40,7 +40,7 @@ Deno.test('parses select variables', () => {
   });
 
   assertThrows(() => new Select('test', 'Test', '[test]'));
-  assertThrows(() => new Select('test', 'Test', "['test']"));
+  assertThrows(() => new Select('test', 'Test', '[\'test\']'));
   assertThrows(() => new Select('test', 'Test', '["test", "test"]'));
   assertThrows(() => new Select('test', 'Test', '["test:Test", "test:Test 2"]'));
   assertThrows(() => new Select('test', 'Test', '{"test:Test": "test", "test:Test 2": "test 2"}'));

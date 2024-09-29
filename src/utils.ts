@@ -1,9 +1,8 @@
-type GetLiteral<T extends string, U> = U extends T
-  ? T extends U
-    ? never
-    : U
-  : never;
-
-export type ExtractLiterals<T> = T extends infer R ? GetLiteral<string, R> : never;
+// deno-lint-ignore-file no-explicit-any
 
 export type WithRequired<T extends keyof K, K> = K & { [P in T]-?: K[P] };
+
+export type AddParameters<
+  TFunction extends (...args: any) => any,
+  TParameters extends [...args: any]
+> = ( ...args: [...Parameters<TFunction>, ...TParameters]) => ReturnType<TFunction>;

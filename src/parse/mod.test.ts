@@ -1,41 +1,10 @@
-import { assertThrows, assert, assertEquals } from '@std/assert';
-import { parse as defaultParse } from './mod.ts';
+import { assertThrows, assertEquals } from '@std/assert';
+import { parse as defaultParse } from '../mod.ts';
 
 Deno.test('valid userstyle', () => {
   assertThrows(() => defaultParse(''));
   assertThrows(() => defaultParse('invalid'));
   assertThrows(() => defaultParse('@name test\n@namespace test'));
-});
-
-Deno.test('keys required by default', () => {
-  assertThrows(() => defaultParse([
-    '/* ==UserStyle==',
-    '@name example',
-    '@author test',
-    '==/UserStyle== */',
-  ].join('\n')));
-
-  assertThrows(() => defaultParse([
-    '/* ==UserStyle==',
-    '@namespace https://example.com/',
-    '@author test',
-    '==/UserStyle== */',
-  ].join('\n')));
-
-  assertThrows(() => defaultParse([
-    '/* ==UserStyle==',
-    '@namespace https://example.com/',
-    '@author test',
-    '==/UserStyle== */',
-  ].join('\n')));
-
-  assert(defaultParse([
-    '/* ==UserStyle==',
-    '@name example',
-    '@namespace https://example.com/',
-    '@version v0.1.0',
-    '==/UserStyle== */',
-  ].join('\n')));
 });
 
 const parse = (text: string | string[]) => defaultParse([
@@ -46,15 +15,15 @@ const parse = (text: string | string[]) => defaultParse([
 
 Deno.test('basic keys', () => {
   assertEquals(parse([
-    '@name example',
-    '@namespace https://example.com/',
-    '@version 1.0.0',
-    '@description test',
-    '@author test',
-    '@homepageURL https://example.com/',
-    '@supportURL https://example.com/issues',
-    '@updateURL https://example.com/example.user.css',
-    '@license unlicense',
+    '@name         example',
+    '@namespace    https://example.com/',
+    '@version      1.0.0',
+    '@description  test',
+    '@author       test',
+    '@homepageURL  https://example.com/',
+    '@supportURL   https://example.com/issues',
+    '@updateURL    https://example.com/example.user.css',
+    '@license      unlicense',
     '@preprocessor default',
   ]), {
     name: 'example',

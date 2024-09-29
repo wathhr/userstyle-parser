@@ -13,7 +13,7 @@ export class Select extends VariableBase<string> {
     super(name, label, raw);
 
     const input = this.raw
-      .replace("'", '"')
+      .replace('\'', '"')
       .replace(/,\s*(]|})/g, '$1');
 
     const json = JSON.parse(input);

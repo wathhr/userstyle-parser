@@ -1,5 +1,6 @@
 import correct from 'spdx-correct';
-import type { CustomParserArgs } from '../types.ts';
+import { ParseError } from '../mod.ts';
+import { createCustomParser } from './custom.ts';
 
 // ! https://github.com/jslicense/spdx-license-ids/blob/main/index.json
 export const validLicenses = [
@@ -640,8 +641,9 @@ export const validLicenses = [
 ] as const;
 
 export type License = typeof validLicenses[number];
-export function license({ text }: CustomParserArgs): License {
+export const license = createCustomParser<License>((_, { position, nextPart }) => {
+  const text = nextPart().value;
   const corrected = correct(text) as License;
   if (validLicenses.includes(corrected)) return corrected;
-  throw new Error('Invalid license');
-}
+  throw new ParseError({ message: `Invalid license: "${text}"`, position });
+});

@@ -10,7 +10,7 @@ Deno.test('parses range variables', () => {
   assertEquals(RangeVariable.info.step, 1);
   assertEquals(RangeVariable.info.unit, 'em');
 
-  const UnitPlacementRangeVariable = new Range('test', 'Test', "[50, 'px', 100, ]");
+  const UnitPlacementRangeVariable = new Range('test', 'Test', '[50, \'px\', 100, ]');
   assertEquals(UnitPlacementRangeVariable.defaultValue, 50);
   assertEquals(UnitPlacementRangeVariable.info.min, 100);
   assertEquals(UnitPlacementRangeVariable.info.max, undefined);
